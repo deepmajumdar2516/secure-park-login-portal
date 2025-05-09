@@ -15,7 +15,7 @@ const CompanyLogo: React.FC<CompanyLogoProps> = ({ size = 'md' }) => {
   return (
     <div className={`${sizeClasses[size]} flex items-center justify-center rounded-md`}>
       <img 
-        src="/lovable-uploads/389a3047-4652-469b-a33d-6a5fc3d49b24.png" 
+        src="/lovable-uploads/b2d7ea86-215c-4779-bdd1-aeea7393310d.png" 
         alt="ParkNSecure Logo" 
         className="w-full h-full object-contain" 
       />
