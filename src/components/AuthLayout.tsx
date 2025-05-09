@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import CompanyLogo from './CompanyLogo';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import OtpVerification from './OtpVerification';
 import { Button } from '@/components/ui/button';
-import { CircleParking, Car } from 'lucide-react';
+import { CircleParking, Search, MapPin } from 'lucide-react';
 
 type AuthView = 'welcome' | 'login' | 'signup' | 'verify-login' | 'verify-signup';
 
@@ -26,70 +27,101 @@ const AuthLayout: React.FC = () => {
 
   return (
     <div className="flex h-screen w-full bg-white">
-      {/* Left Side - Parking Design Mockup (45% width) */}
+      {/* Left Side - Parking App Mockup (45% width) */}
       <div className="hidden md:block md:w-[45%] relative">
         <div 
           className="absolute inset-0 bg-parknSecure-lightGray"
         >
-          <div className="absolute inset-0 bg-white/5 flex flex-col items-center justify-center p-8">
-            {/* Logo at the top */}
-            <div className="mb-10">
-              <img 
-                src="/lovable-uploads/639fd893-924e-4eb6-8c64-8c68d9661ca6.png" 
-                alt="ParkNSecure Logo" 
-                className="w-40 h-auto"
-              />
-            </div>
-            
-            {/* Parking Design Mockup */}
-            <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 mb-6">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold text-parknSecure-darkBlue">Find Parking</h3>
-                <CircleParking className="text-parknSecure-green w-6 h-6" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            {/* Mobile Phone Mockup */}
+            <div className="relative w-[320px] h-[650px] bg-black rounded-[40px] p-3 shadow-xl border-8 border-black">
+              {/* Status Bar */}
+              <div className="absolute top-0 left-0 right-0 h-7 bg-gray-700 rounded-t-[32px] flex items-center justify-between px-6">
+                <div className="text-white text-xs font-medium">9:41</div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
               </div>
               
-              <div className="space-y-4">
-                {/* Parking Search Section */}
-                <div className="bg-parknSecure-lightGray rounded-md p-4">
-                  <div className="grid grid-cols-1 gap-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-parknSecure-blue flex items-center justify-center">
-                        <Car className="text-white w-5 h-5" />
-                      </div>
-                      <div className="font-medium">Parking Location</div>
-                    </div>
-                    <div className="h-10 bg-white rounded border border-parknSecure-blue/30"></div>
+              {/* App Content */}
+              <div className="w-full h-full bg-[#e8f1f5] rounded-[32px] pt-8 flex flex-col">
+                {/* Search Bar */}
+                <div className="px-4 mb-6">
+                  <div className="bg-white h-12 rounded-full flex items-center px-4 shadow-md">
+                    <div className="w-5 h-5 rounded-full border border-gray-300 mr-3"></div>
+                    <span className="text-gray-400">Search for parking...</span>
                   </div>
                 </div>
                 
-                {/* Available Spots */}
-                <div className="space-y-3">
-                  <h4 className="font-medium text-parknSecure-gray">Available Spots</h4>
-                  
-                  {/* Spot 1 */}
-                  <div className="bg-white border border-parknSecure-lightBlue/20 rounded-md p-3 flex items-center justify-between">
-                    <div>
-                      <h5 className="font-medium text-parknSecure-darkBlue">Downtown Parking</h5>
-                      <div className="text-sm text-parknSecure-gray">0.5 miles away</div>
-                    </div>
-                    <div className="text-parknSecure-green font-semibold">$5/hr</div>
+                {/* Map Area */}
+                <div className="flex-1 relative bg-[#e8f1f5]">
+                  {/* Map Grid Lines */}
+                  <div className="absolute inset-0 grid grid-cols-3">
+                    <div className="border-r border-gray-300/50"></div>
+                    <div className="border-r border-gray-300/50"></div>
+                  </div>
+                  <div className="absolute inset-0 grid grid-rows-3">
+                    <div className="border-b border-gray-300/50"></div>
+                    <div className="border-b border-gray-300/50"></div>
                   </div>
                   
-                  {/* Spot 2 */}
-                  <div className="bg-white border border-parknSecure-lightBlue/20 rounded-md p-3 flex items-center justify-between">
-                    <div>
-                      <h5 className="font-medium text-parknSecure-darkBlue">Central Plaza</h5>
-                      <div className="text-sm text-parknSecure-gray">0.8 miles away</div>
+                  {/* Parking Icons */}
+                  <div className="absolute top-1/4 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-12 h-12 rounded-full bg-parknSecure-blue flex items-center justify-center text-white font-bold shadow-lg">
+                      P
                     </div>
-                    <div className="text-parknSecure-green font-semibold">$3/hr</div>
+                  </div>
+                  
+                  <div className="absolute bottom-1/4 right-1/3 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-md border-2 border-white">
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-1/4 right-1/4 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-12 h-12 rounded-full bg-parknSecure-green flex items-center justify-center text-white font-bold shadow-lg">
+                      P
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Bottom Nav Bar */}
+                <div className="h-16 bg-white rounded-b-[28px] flex items-center justify-around px-4">
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full bg-parknSecure-darkBlue flex items-center justify-center text-white">
+                      <MapPin size={20} />
+                    </div>
+                    <span className="text-xs text-parknSecure-darkBlue font-medium mt-1">Map</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center">
+                      <Search size={20} className="text-gray-400" />
+                    </div>
+                    <span className="text-xs text-gray-400 mt-1">Search</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center">
+                      <CircleParking size={20} className="text-gray-400" />
+                    </div>
+                    <span className="text-xs text-gray-400 mt-1">Bookings</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400">
+                      <div className="w-5 h-5 rounded-full border-2 border-gray-400"></div>
+                    </div>
+                    <span className="text-xs text-gray-400 mt-1">Profile</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="text-parknSecure-darkBlue text-center">
-              <h2 className="text-2xl font-bold mb-3">Secure Parking Solutions</h2>
-              <p className="text-lg">Find and reserve parking spots with confidence</p>
+            {/* Company Info Below Phone */}
+            <div className="text-parknSecure-darkBlue text-center mt-8">
+              <h2 className="text-2xl font-bold mb-2">ParkNSecure Mobile App</h2>
+              <p className="text-lg">Find and book parking spots with ease</p>
             </div>
           </div>
         </div>
