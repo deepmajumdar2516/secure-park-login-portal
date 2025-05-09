@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CompanyLogo from './CompanyLogo';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
@@ -19,159 +19,24 @@ interface AuthData {
 const AuthLayout: React.FC = () => {
   const [authView, setAuthView] = useState<AuthView>('welcome');
   const [authData, setAuthData] = useState<AuthData>({});
-  const [carPosition, setCarPosition] = useState(0);
   
   const resetAuth = () => {
     setAuthView('welcome');
     setAuthData({});
   };
 
-  // Car animation effect
-  useEffect(() => {
-    const animateCar = () => {
-      setCarPosition((prev) => {
-        // Reset to start when car reaches end of road
-        if (prev >= 100) return -20;
-        return prev + 0.5;
-      });
-    };
-    
-    const carInterval = setInterval(animateCar, 50);
-    return () => clearInterval(carInterval);
-  }, []);
-
   return (
     <div className="flex h-screen w-full bg-white">
-      {/* Left Side - Parking App Mockup (45% width) */}
+      {/* Left Side - Parking App Illustration (45% width) */}
       <div className="hidden md:block md:w-[45%] relative">
-        <div 
-          className="absolute inset-0 bg-white"
-        >
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            {/* Mobile Phone Mockup */}
-            <div className="relative w-[320px] h-[650px] bg-black rounded-[40px] p-3 shadow-xl border-8 border-black">
-              {/* Status Bar */}
-              <div className="absolute top-0 left-0 right-0 h-7 bg-gray-700 rounded-t-[32px] flex items-center justify-between px-6">
-                <div className="text-white text-xs font-medium">9:41</div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-              </div>
-              
-              {/* App Content */}
-              <div className="w-full h-full bg-white rounded-[32px] pt-8 flex flex-col overflow-hidden">
-                {/* App Header with logo */}
-                <div className="px-4 py-2 flex items-center justify-between border-b border-gray-200">
-                  <div className="flex items-center">
-                    <div className="w-8 h-8">
-                      <img 
-                        src="/lovable-uploads/b2d7ea86-215c-4779-bdd1-aeea7393310d.png" 
-                        alt="ParkNSecure Logo" 
-                        className="w-full h-full object-contain" 
-                      />
-                    </div>
-                    <span className="ml-2 font-semibold text-parknSecure-darkBlue">ParkNSecure</span>
-                  </div>
-                  <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">
-                    <div className="w-4 h-4 rounded-full border-2 border-parknSecure-darkBlue"></div>
-                  </div>
-                </div>
-                
-                {/* Search Bar */}
-                <div className="px-4 py-3">
-                  <div className="bg-gray-100 h-12 rounded-full flex items-center px-4 shadow-sm">
-                    <Search size={16} className="text-gray-400 mr-2" />
-                    <span className="text-gray-400 text-sm">Find parking near me...</span>
-                  </div>
-                </div>
-                
-                {/* Map Area */}
-                <div className="flex-1 relative bg-[#e8f1f5]">
-                  {/* Road */}
-                  <div className="absolute w-full h-12 bg-gray-600 top-1/2 transform -translate-y-1/2">
-                    {/* Road markings */}
-                    <div className="h-1 w-full flex">
-                      {[...Array(10)].map((_, i) => (
-                        <div key={i} className="h-1 w-12 bg-yellow-400 mx-4"></div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Animated Car */}
-                  <div 
-                    className="absolute top-1/2 transform -translate-y-1/2 transition-all duration-300 z-10"
-                    style={{ left: `${carPosition}%` }}
-                  >
-                    <Car size={30} className="text-parknSecure-blue" />
-                  </div>
-                  
-                  {/* Buildings and structures */}
-                  <div className="absolute top-[20%] left-[10%]">
-                    <div className="w-16 h-24 bg-parknSecure-blue rounded-sm"></div>
-                  </div>
-                  
-                  <div className="absolute top-[25%] left-[35%]">
-                    <div className="w-20 h-16 bg-parknSecure-darkBlue rounded-sm"></div>
-                  </div>
-                  
-                  <div className="absolute top-[20%] right-[15%]">
-                    <div className="w-16 h-20 bg-parknSecure-green rounded-sm"></div>
-                  </div>
-                  
-                  {/* Parking Icons */}
-                  <div className="absolute top-[70%] left-[20%]">
-                    <div className="w-12 h-12 rounded-full bg-parknSecure-blue flex items-center justify-center text-white font-bold shadow-lg">
-                      P
-                    </div>
-                  </div>
-                  
-                  <div className="absolute top-[75%] right-[25%]">
-                    <div className="w-12 h-12 rounded-full bg-parknSecure-green flex items-center justify-center text-white font-bold shadow-lg">
-                      P
-                    </div>
-                  </div>
-                  
-                  {/* User location */}
-                  <div className="absolute bottom-[15%] left-[40%]">
-                    <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center shadow-md border-2 border-white">
-                      <div className="w-4 h-4 bg-white rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Bottom Nav Bar */}
-                <div className="h-16 bg-white border-t border-gray-200 rounded-b-[28px] flex items-center justify-around px-4">
-                  <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full bg-parknSecure-darkBlue flex items-center justify-center text-white">
-                      <MapPin size={20} />
-                    </div>
-                    <span className="text-xs text-parknSecure-darkBlue font-medium mt-1">Map</span>
-                  </div>
-                  
-                  <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center">
-                      <Search size={20} className="text-gray-400" />
-                    </div>
-                    <span className="text-xs text-gray-400 mt-1">Search</span>
-                  </div>
-                  
-                  <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center">
-                      <CircleParking size={20} className="text-gray-400" />
-                    </div>
-                    <span className="text-xs text-gray-400 mt-1">Bookings</span>
-                  </div>
-                  
-                  <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400">
-                      <div className="w-5 h-5 rounded-full border-2 border-gray-400"></div>
-                    </div>
-                    <span className="text-xs text-gray-400 mt-1">Profile</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="absolute inset-0 flex items-center justify-center p-8 bg-white">
+          <div className="w-full max-w-lg">
+            <img 
+              src="/lovable-uploads/805015d7-a55e-4e85-97e1-d6c238f434fb.png" 
+              alt="Parking Management Illustration" 
+              className="w-full object-contain"
+              style={{ filter: 'hue-rotate(190deg)' }} // Adjust hue to match the blue brand color
+            />
           </div>
         </div>
       </div>
@@ -247,6 +112,7 @@ const AuthLayout: React.FC = () => {
               </div>
             )}
             
+            {/* Login Form */}
             {authView === 'login' && (
               <LoginForm 
                 onSubmit={(data) => {
@@ -260,6 +126,7 @@ const AuthLayout: React.FC = () => {
               />
             )}
             
+            {/* Signup Form */}
             {authView === 'signup' && (
               <SignupForm 
                 onSubmit={(data) => {
@@ -275,6 +142,7 @@ const AuthLayout: React.FC = () => {
               />
             )}
             
+            {/* OTP Verification */}
             {authView === 'verify-login' && (
               <OtpVerification 
                 phone={authData.phone}
