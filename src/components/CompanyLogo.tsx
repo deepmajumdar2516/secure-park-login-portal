@@ -13,26 +13,12 @@ const CompanyLogo: React.FC<CompanyLogoProps> = ({ size = 'md' }) => {
   };
 
   return (
-    <div className={`${sizeClasses[size]} flex items-center justify-center bg-parknSecure-blue rounded-md`}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-2/3 h-2/3"
-      >
-        <rect width="18" height="18" x="3" y="3" rx="2" />
-        <path d="M7 7h.01" />
-        <path d="M10 7h7" />
-        <path d="M7 12h.01" />
-        <path d="M10 12h7" />
-        <path d="M7 17h.01" />
-        <path d="M10 17h3" />
-        <circle cx="19" cy="17" r="2" />
-      </svg>
+    <div className={`${sizeClasses[size]} flex items-center justify-center rounded-md`}>
+      <img 
+        src="/lovable-uploads/639fd893-924e-4eb6-8c64-8c68d9661ca6.png" 
+        alt="ParkNSecure Logo" 
+        className="w-full h-full object-contain" 
+      />
     </div>
   );
 };

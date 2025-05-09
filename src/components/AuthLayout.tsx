@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import CompanyLogo from './CompanyLogo';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import OtpVerification from './OtpVerification';
 import { Button } from '@/components/ui/button';
+import { CircleParking, Car } from 'lucide-react';
 
 type AuthView = 'welcome' | 'login' | 'signup' | 'verify-login' | 'verify-signup';
 
@@ -26,18 +26,70 @@ const AuthLayout: React.FC = () => {
 
   return (
     <div className="flex h-screen w-full bg-white">
-      {/* Left Side - Image (45% width) */}
+      {/* Left Side - Parking Design Mockup (45% width) */}
       <div className="hidden md:block md:w-[45%] relative">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&w=1000&q=80")'
-          }}
+          className="absolute inset-0 bg-parknSecure-lightGray"
         >
-          <div className="absolute inset-0 bg-parknSecure-darkBlue/40 flex items-center justify-center">
-            <div className="text-white text-center p-8">
-              <h2 className="text-3xl font-bold mb-4">Secure Parking Solutions</h2>
-              <p className="text-xl">Manage your parking spaces with confidence</p>
+          <div className="absolute inset-0 bg-white/5 flex flex-col items-center justify-center p-8">
+            {/* Logo at the top */}
+            <div className="mb-10">
+              <img 
+                src="/lovable-uploads/639fd893-924e-4eb6-8c64-8c68d9661ca6.png" 
+                alt="ParkNSecure Logo" 
+                className="w-40 h-auto"
+              />
+            </div>
+            
+            {/* Parking Design Mockup */}
+            <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 mb-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-semibold text-parknSecure-darkBlue">Find Parking</h3>
+                <CircleParking className="text-parknSecure-green w-6 h-6" />
+              </div>
+              
+              <div className="space-y-4">
+                {/* Parking Search Section */}
+                <div className="bg-parknSecure-lightGray rounded-md p-4">
+                  <div className="grid grid-cols-1 gap-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-parknSecure-blue flex items-center justify-center">
+                        <Car className="text-white w-5 h-5" />
+                      </div>
+                      <div className="font-medium">Parking Location</div>
+                    </div>
+                    <div className="h-10 bg-white rounded border border-parknSecure-blue/30"></div>
+                  </div>
+                </div>
+                
+                {/* Available Spots */}
+                <div className="space-y-3">
+                  <h4 className="font-medium text-parknSecure-gray">Available Spots</h4>
+                  
+                  {/* Spot 1 */}
+                  <div className="bg-white border border-parknSecure-lightBlue/20 rounded-md p-3 flex items-center justify-between">
+                    <div>
+                      <h5 className="font-medium text-parknSecure-darkBlue">Downtown Parking</h5>
+                      <div className="text-sm text-parknSecure-gray">0.5 miles away</div>
+                    </div>
+                    <div className="text-parknSecure-green font-semibold">$5/hr</div>
+                  </div>
+                  
+                  {/* Spot 2 */}
+                  <div className="bg-white border border-parknSecure-lightBlue/20 rounded-md p-3 flex items-center justify-between">
+                    <div>
+                      <h5 className="font-medium text-parknSecure-darkBlue">Central Plaza</h5>
+                      <div className="text-sm text-parknSecure-gray">0.8 miles away</div>
+                    </div>
+                    <div className="text-parknSecure-green font-semibold">$3/hr</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-parknSecure-darkBlue text-center">
+              <h2 className="text-2xl font-bold mb-3">Secure Parking Solutions</h2>
+              <p className="text-lg">Find and reserve parking spots with confidence</p>
             </div>
           </div>
         </div>
