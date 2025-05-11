@@ -28,23 +28,15 @@ const AuthLayout: React.FC = () => {
   return (
     <div className="flex h-screen w-full bg-white">
       {/* Left Side - Parking App Illustration (45% width) */}
-      <div className="hidden md:block md:w-[45%] relative bg-gradient-to-br from-parknSecure-blue/10 to-parknSecure-lightBlue/10">
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
+      <div className="hidden md:block md:w-[45%] relative">
+        <div className="absolute inset-0 flex items-center justify-center p-8 bg-white">
           <div className="w-full max-w-lg">
-            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-parknSecure-blue/20">
-              <img 
-                src="/lovable-uploads/805015d7-a55e-4e85-97e1-d6c238f434fb.png" 
-                alt="Parking Management Illustration" 
-                className="w-full object-contain"
-                style={{ filter: 'hue-rotate(190deg) saturate(1.2)' }} 
-              />
-              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-parknSecure-darkBlue/80 to-transparent">
-                <div className="flex items-center gap-2 text-white">
-                  <CircleParking className="h-5 w-5" />
-                  <span className="font-medium">Connekt2Park</span>
-                </div>
-              </div>
-            </div>
+            <img 
+              src="/lovable-uploads/805015d7-a55e-4e85-97e1-d6c238f434fb.png" 
+              alt="Parking Management Illustration" 
+              className="w-full object-contain"
+              style={{ filter: 'hue-rotate(190deg)' }} // Adjust hue to match the blue brand color
+            />
           </div>
         </div>
       </div>
@@ -97,10 +89,10 @@ const AuthLayout: React.FC = () => {
                 <h2 className="text-3xl font-bold text-parknSecure-darkBlue mb-6">
                   Welcome to ParkNSecure
                 </h2>
-                <p className="text-parknSecure-gray mb-4">
+                <p className="text-parknSecure-gray mb-8">
                   Your comprehensive solution for secure parking management
                 </p>
-                <div className="flex gap-4 justify-center mb-6">
+                <div className="flex gap-4 justify-center">
                   <Button 
                     variant="outline" 
                     size="lg"
@@ -117,9 +109,6 @@ const AuthLayout: React.FC = () => {
                     Create New Account
                   </Button>
                 </div>
-                <p className="text-sm italic text-parknSecure-darkBlue mt-10 px-6">
-                  Experience seamless parking solutions with Connekt2Park – where technology meets convenience.
-                </p>
               </div>
             )}
             
