@@ -88,16 +88,16 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-parknSecure-darkBlue">
+    <Card className="w-full border-parknSecure-lightBlue/20">
+      <CardHeader className="border-b border-parknSecure-lightGray pb-4">
+        <CardTitle className="text-2xl font-bold text-parknSecure-lightBlue">
           Create Your Account
         </CardTitle>
         <CardDescription>
           Enter your details to receive verification codes
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         <div className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="phone" className="text-sm font-medium text-parknSecure-gray">
@@ -108,7 +108,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
               placeholder="Enter your phone number"
               value={phone}
               onChange={handlePhoneChange}
-              className={`border ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
+              className={`border ${errors.phone ? 'border-red-500' : 'border-parknSecure-blue/50'}`}
               disabled={loading}
             />
             {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
@@ -124,14 +124,14 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
               placeholder="Enter your email address"
               value={email}
               onChange={handleEmailChange}
-              className={`border ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+              className={`border ${errors.email ? 'border-red-500' : 'border-parknSecure-blue/50'}`}
               disabled={loading}
             />
             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
           </div>
           
           <Button 
-            className="w-full bg-parknSecure-blue hover:bg-parknSecure-darkBlue"
+            className="w-full bg-parknSecure-lightBlue hover:bg-parknSecure-green text-white"
             onClick={handleGenerateOTP}
             disabled={loading}
           >
