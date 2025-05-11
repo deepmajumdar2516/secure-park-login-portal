@@ -53,16 +53,16 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <Card className="w-full border-parknSecure-blue/20">
-      <CardHeader className="border-b border-parknSecure-lightGray pb-4">
-        <CardTitle className="text-2xl font-bold text-parknSecure-blue">
+    <Card className="w-full">
+      <CardHeader>
+        <CardTitle className="text-2xl font-bold text-parknSecure-darkBlue">
           Login to Your Account
         </CardTitle>
         <CardDescription>
           Enter your phone number to receive a verification code
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent>
         <div className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="phone" className="text-sm font-medium text-parknSecure-gray">
@@ -73,14 +73,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
               placeholder="Enter your phone number"
               value={phone}
               onChange={handlePhoneChange}
-              className={`border ${error ? 'border-red-500' : 'border-parknSecure-lightBlue/50'}`}
+              className={`border ${error ? 'border-red-500' : 'border-gray-300'}`}
               disabled={loading}
             />
             {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
           </div>
           
           <Button 
-            className="w-full bg-parknSecure-blue hover:bg-parknSecure-darkBlue text-white"
+            className="w-full bg-parknSecure-blue hover:bg-parknSecure-darkBlue"
             onClick={handleGenerateOTP}
             disabled={loading}
           >

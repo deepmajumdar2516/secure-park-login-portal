@@ -35,10 +35,7 @@ const AuthLayout: React.FC = () => {
               src="/lovable-uploads/805015d7-a55e-4e85-97e1-d6c238f434fb.png" 
               alt="Simplified Parking Illustration" 
               className="w-full object-contain"
-              style={{ 
-                filter: 'hue-rotate(120deg) saturate(0.8) brightness(1.05)',
-                mixBlendMode: 'multiply'
-              }} 
+              style={{ filter: 'hue-rotate(100deg) saturate(0.8) opacity(0.85)' }} // Adjust hue to match the new teal/emerald color scheme
             />
           </div>
         </div>
@@ -53,10 +50,10 @@ const AuthLayout: React.FC = () => {
             <h1 className="text-2xl font-bold text-parknSecure-blue">ParkNSecure</h1>
           </div>
           
-          {/* Only show company name and logo at the top right */}
-          <div className="flex items-center gap-2">
+          {/* Show company name instead of buttons */}
+          <div className="flex items-center gap-3">
             <h2 className="text-xl font-semibold text-parknSecure-blue">ParkNSecure</h2>
-            <CompanyLogo size="md" />
+            <CompanyLogo size="md" /> {/* Slightly increased size from previous "sm" */}
           </div>
         </div>
         

@@ -64,12 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				parknSecure: {
-					blue: '#008080',         // Teal
-					lightBlue: '#50C878',    // Emerald green
-					darkBlue: '#006666',     // Darker teal
-					green: '#36B37E',        // Medium green
-					lightGreen: '#7FE5B7',   // Light emerald
-					gray: '#505F79',         
+					blue: '#008080',       // Changed to teal
+					lightBlue: '#50C878',  // Changed to emerald green
+					darkBlue: '#006666',   // Darker version of teal
+					green: '#36B37E',
+					gray: '#505F79',
 					lightGray: '#F4F5F7'
 				}
 			},
