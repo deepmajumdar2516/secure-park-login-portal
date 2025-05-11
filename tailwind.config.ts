@@ -69,7 +69,17 @@ export default {
 					darkBlue: '#0747A6',
 					green: '#36B37E',
 					gray: '#505F79',
-					lightGray: '#F4F5F7'
+					lightGray: '#F4F5F7',
+					teal: '#008080',
+					emerald: '#50C878'
+				},
+				teal: {
+					DEFAULT: '#008080'
+				},
+				emerald: {
+					DEFAULT: '#50C878',
+					500: '#50C878',
+					600: '#3DAA67'
 				}
 			},
 			borderRadius: {

@@ -90,17 +90,17 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-parknSecure-darkBlue">
+        <CardTitle className="text-2xl font-bold" style={{ color: "#008080" }}>
           Create Your Account
         </CardTitle>
-        <CardDescription>
+        <CardDescription style={{ color: "#50C878" }}>
           Enter your details to receive verification codes
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="phone" className="text-sm font-medium text-parknSecure-gray">
+            <label htmlFor="phone" className="text-sm font-medium" style={{ color: "#50C878" }}>
               Phone Number
             </label>
             <Input
@@ -115,7 +115,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
           </div>
           
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-parknSecure-gray">
+            <label htmlFor="email" className="text-sm font-medium" style={{ color: "#50C878" }}>
               Email Address
             </label>
             <Input
@@ -131,9 +131,10 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
           </div>
           
           <Button 
-            className="w-full bg-parknSecure-blue hover:bg-parknSecure-darkBlue"
+            className="w-full text-white hover:opacity-90"
             onClick={handleGenerateOTP}
             disabled={loading}
+            style={{ backgroundColor: "#50C878" }}
           >
             {loading ? 'Sending Verification Codes...' : 'Generate Verification Codes'}
           </Button>

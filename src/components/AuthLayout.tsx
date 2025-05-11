@@ -47,29 +47,12 @@ const AuthLayout: React.FC = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <CompanyLogo size="md" />
-            <h1 className="text-2xl font-bold text-parknSecure-darkBlue">ParkNSecure</h1>
           </div>
           
-          {/* Only show these buttons on the welcome screen */}
-          {authView === 'welcome' && (
-            <div className="flex gap-4">
-              <Button 
-                variant="outline" 
-                className="border-parknSecure-blue text-parknSecure-blue hover:bg-parknSecure-blue hover:text-white"
-                onClick={() => setAuthView('login')}
-              >
-                Login
-              </Button>
-              <Button 
-                className="bg-parknSecure-blue hover:bg-parknSecure-darkBlue text-white"
-                onClick={() => setAuthView('signup')}
-              >
-                Sign Up
-              </Button>
-            </div>
-          )}
+          {/* Company name in top right corner */}
+          <h1 className="text-2xl font-bold" style={{ color: "#008080" }}>ParkNSecure</h1>
           
-          {/* Show back button on other screens */}
+          {/* Back button on non-welcome screens */}
           {authView !== 'welcome' && (
             <Button 
               variant="ghost" 
@@ -86,7 +69,7 @@ const AuthLayout: React.FC = () => {
           <div className="w-full max-w-md auth-transition animate-fade-in">
             {authView === 'welcome' && (
               <div className="text-center">
-                <h2 className="text-3xl font-bold text-parknSecure-darkBlue mb-6">
+                <h2 className="text-3xl font-bold mb-6" style={{ color: "#008080" }}>
                   Welcome to ParkNSecure
                 </h2>
                 <p className="text-parknSecure-gray mb-8">
@@ -96,19 +79,24 @@ const AuthLayout: React.FC = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    className="border-parknSecure-blue text-parknSecure-blue hover:bg-parknSecure-blue hover:text-white"
+                    className="border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white"
                     onClick={() => setAuthView('login')}
+                    style={{ borderColor: "#50C878", color: "#50C878" }}
                   >
                     Login to Your Account
                   </Button>
                   <Button 
                     size="lg"
-                    className="bg-parknSecure-blue hover:bg-parknSecure-darkBlue text-white"
                     onClick={() => setAuthView('signup')}
+                    style={{ backgroundColor: "#50C878" }}
+                    className="hover:bg-emerald-600 text-white"
                   >
                     Create New Account
                   </Button>
                 </div>
+                <p className="mt-6 text-sm" style={{ color: "#50C878" }}>
+                  Experience seamless parking solutions with Connekt2Park – where technology meets convenience.
+                </p>
               </div>
             )}
             
