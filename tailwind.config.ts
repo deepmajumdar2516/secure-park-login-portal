@@ -64,9 +64,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				parknSecure: {
-					blue: '#0052CC',
-					lightBlue: '#4C9AFF',
-					darkBlue: '#0747A6',
+					blue: '#008080',       // Changed to teal
+					lightBlue: '#50C878',  // Changed to emerald green
+					darkBlue: '#006666',   // Darker version of teal
 					green: '#36B37E',
 					gray: '#505F79',
 					lightGray: '#F4F5F7'

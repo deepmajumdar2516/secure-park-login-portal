@@ -33,9 +33,9 @@ const AuthLayout: React.FC = () => {
           <div className="w-full max-w-lg">
             <img 
               src="/lovable-uploads/805015d7-a55e-4e85-97e1-d6c238f434fb.png" 
-              alt="Parking Management Illustration" 
+              alt="Simplified Parking Illustration" 
               className="w-full object-contain"
-              style={{ filter: 'hue-rotate(190deg)' }} // Adjust hue to match the blue brand color
+              style={{ filter: 'hue-rotate(100deg) saturate(0.8) opacity(0.85)' }} // Adjust hue to match the new teal/emerald color scheme
             />
           </div>
         </div>
@@ -47,38 +47,14 @@ const AuthLayout: React.FC = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <CompanyLogo size="md" />
-            <h1 className="text-2xl font-bold text-parknSecure-darkBlue">ParkNSecure</h1>
+            <h1 className="text-2xl font-bold text-parknSecure-blue">ParkNSecure</h1>
           </div>
           
-          {/* Only show these buttons on the welcome screen */}
-          {authView === 'welcome' && (
-            <div className="flex gap-4">
-              <Button 
-                variant="outline" 
-                className="border-parknSecure-blue text-parknSecure-blue hover:bg-parknSecure-blue hover:text-white"
-                onClick={() => setAuthView('login')}
-              >
-                Login
-              </Button>
-              <Button 
-                className="bg-parknSecure-blue hover:bg-parknSecure-darkBlue text-white"
-                onClick={() => setAuthView('signup')}
-              >
-                Sign Up
-              </Button>
-            </div>
-          )}
-          
-          {/* Show back button on other screens */}
-          {authView !== 'welcome' && (
-            <Button 
-              variant="ghost" 
-              className="text-parknSecure-gray"
-              onClick={resetAuth}
-            >
-              Back to Home
-            </Button>
-          )}
+          {/* Show company name instead of buttons */}
+          <div className="flex items-center gap-3">
+            <h2 className="text-xl font-semibold text-parknSecure-blue">ParkNSecure</h2>
+            <CompanyLogo size="md" /> {/* Slightly increased size from previous "sm" */}
+          </div>
         </div>
         
         {/* Content area */}
@@ -86,13 +62,13 @@ const AuthLayout: React.FC = () => {
           <div className="w-full max-w-md auth-transition animate-fade-in">
             {authView === 'welcome' && (
               <div className="text-center">
-                <h2 className="text-3xl font-bold text-parknSecure-darkBlue mb-6">
+                <h2 className="text-3xl font-bold text-parknSecure-blue mb-6">
                   Welcome to ParkNSecure
                 </h2>
                 <p className="text-parknSecure-gray mb-8">
                   Your comprehensive solution for secure parking management
                 </p>
-                <div className="flex gap-4 justify-center">
+                <div className="flex gap-4 justify-center mb-6">
                   <Button 
                     variant="outline" 
                     size="lg"
@@ -103,12 +79,15 @@ const AuthLayout: React.FC = () => {
                   </Button>
                   <Button 
                     size="lg"
-                    className="bg-parknSecure-blue hover:bg-parknSecure-darkBlue text-white"
+                    className="bg-parknSecure-lightBlue hover:bg-parknSecure-blue text-white"
                     onClick={() => setAuthView('signup')}
                   >
                     Create New Account
                   </Button>
                 </div>
+                <p className="text-sm text-parknSecure-gray mt-6 px-6 italic">
+                  Experience seamless parking solutions with Connekt2Park – where technology meets convenience.
+                </p>
               </div>
             )}
             
